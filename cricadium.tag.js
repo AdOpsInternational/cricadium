@@ -58,11 +58,14 @@ window.adslots = document.querySelectorAll('[id*="adops"]');
 if (window.adslots) {
     loadSlots(window.adslots); 
 }
-var resizeObserver = new ResizeObserver(e => {
-    window.device = window.innerWidth < 728 ? "mobile" : "desktop";
-    var newAdSlot = document.querySelectorAll('[id*="adops"]');
-    if (newAdSlot) {
-        loadSlots(newAdSlot)
-    }
-});
-resizeObserver.observe(document.querySelector("ul.g1-collection-items"));
+if(document.querySelector("ul.g1-collection-items"))
+{
+    var resizeObserver = new ResizeObserver(e => {
+        window.device = window.innerWidth < 728 ? "mobile" : "desktop";
+        var newAdSlot = document.querySelectorAll('[id*="adops"]');
+        if (newAdSlot) {
+            loadSlots(newAdSlot)
+        }
+    }); 
+    resizeObserver.observe(document.querySelector("ul.g1-collection-items"));
+}
