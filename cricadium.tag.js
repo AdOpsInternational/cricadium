@@ -8,6 +8,17 @@ window.googletag = window.googletag || { cmd: [] };
 window.allAds = window.allAds || [];
 window.adConfig = {"toplevel": "/21812869764/", "leaderboard": [[728, 90], [970, 90]], "inarticle": [[728, 90]], "sidebar": [[300, 250], [338, 280], [320, 50]], "/": "home", "blog": "article", "desktop": { "leaderboard": [[728, 90], [970, 90], 'fluid'], "inarticle": [[728, 90], 'fluid'], "header": [[728, 90], [970, 90], 'fluid'], "sidebar": [[300, 250], [338, 280], [320, 50], 'fluid'], "comments": [[728, 90], [970, 90], 'fluid'], "content": [[728, 90], [320, 50], [320, 100], [300, 100], 'fluid'], "righrail": [[338, 280], [300, 250], 'fluid'], "reactions": [[728, 90], [970, 90], 'fluid'], }, "mobile": { "header": [[300, 250], [336, 280], [320, 50], [320, 100], [300, 100]], "leaderboard": [[300, 250], [336, 280], [320, 50], [320, 100]], "inarticle": [[300, 250], [336, 280], [320, 50], [320, 100]], "sidebar": [[300, 250], [338, 280], [320, 50], 'fluid'], "comments": [[320, 50], [320, 100], [300, 100], 'fluid'], "content": [[320, 50], [320, 100], [300, 100], 'fluid'], "reactions": [[320, 50], [320, 100], [300, 100], [300, 250], 'fluid'], "righrail": [[320, 50], [320, 100], [300, 100], [300, 250], 'fluid'], } };
 window.adstyle = {"mobile": "width:90%;min-height:60px;height:min-content;margin:auto;padding:1%;", "desktop": "width:100%;min-height:100px;margin:auto;text-align:center;" };
+
+var interstital, anchorad;
+
+googletag.cmd.push(function(){
+    anchorad = googletag.defineOutOfPageSlot(`${adConfig.toplevel}/anchortag`, googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR); 
+    interstital = googletag.defineOutOfPageSlot(`${adConfig.toplevel}/interstital`, googletag.enums.OutOfPageFormat.INTERSTITIAL);
+    anchorad? (anchorad.addService(googletag.pubads()) && googletag.pubads().enableSingleRequest()): "";
+    interstital? (interstital.addService(googletag.pubads()) && googletag.pubads().enableSingleRequest()) : ""; 
+}); 
+
+
 function defineAdmanager(id, type) {
     try {
         var page = window.location.pathname;
