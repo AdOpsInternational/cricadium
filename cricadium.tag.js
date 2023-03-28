@@ -13,7 +13,7 @@ var interstital, anchorad;
 
 googletag.cmd.push(function(){
     anchorad = googletag.defineOutOfPageSlot(`${adConfig.toplevel}/anchortag`, googletag.enums.OutOfPageFormat.BOTTOM_ANCHOR); 
-    interstital = googletag.defineOutOfPageSlot(`${adConfig.toplevel}/interstital`, googletag.enums.OutOfPageFormat.INTERSTITIAL);
+    interstital = googletag.defineOutOfPageSlot(`${adConfig.toplevel}/web_interstitials`, googletag.enums.OutOfPageFormat.INTERSTITIAL);
     anchorad? (anchorad.addService(googletag.pubads()) && googletag.pubads().enableSingleRequest()): "";
     interstital? (interstital.addService(googletag.pubads()) && googletag.pubads().enableSingleRequest()) : ""; 
 }); 
