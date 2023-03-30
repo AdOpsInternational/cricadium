@@ -65,10 +65,18 @@ function loadSlots(adslotsDivs) {
 };
 window.loadSlots = loadSlots;
 window.defineAdmanager = defineAdmanager;
-window.adslots = document.querySelectorAll('[id*="adops"]');
-if (window.adslots) {
-    loadSlots(window.adslots); 
-}
+//window.adslots = document.querySelectorAll('[id*="adops"]');
+//if (window.adslots) {
+ //   loadSlots(window.adslots); 
+//}
+$(function() { 
+   window.loadSlots = loadSlots;
+   window.defineAdmanager = defineAdmanager;
+    window.adslots = document.querySelectorAll('[id*="adops"]');
+    if (window.adslots) {
+     loadSlots(window.adslots); 
+    }
+});
 if(document.querySelector("ul.g1-collection-items"))
 {
     var resizeObserver = new ResizeObserver(e => {
