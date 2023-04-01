@@ -57,7 +57,10 @@ window.googletag = window.googletag || {cmd: []};
 	}
 	window.loadSlots = loadSlots; 
 	window.defineAdmanager = defineAdmanager;
-	loadSlots(window.adslots ); 
+	if(window.adslots)
+	{
+	 loadSlots(window.adslots ); 
+	}
 	if(window.location.pathname == "/"){ //g1-collection-items
 		var resizeObserver = new ResizeObserver(e => { 
 			window.device = window.innerWidth < 728? "mobile":"desktop"; 
